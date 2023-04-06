@@ -19,7 +19,7 @@ function fetchCountries() {
 function renderCountries(countries, filterText) {
   if (filterText.length == 0) {
     countryList.innerHTML = '';
-    countryInfo.innerHTML = '<p> Brak wynikow</p>';
+    countryInfo.innerHTML = '<p> Oops, there is no country with that name </p>';
   } else {
     const filteredCountry = countries.filter(country =>
       country.name.common.toUpperCase().includes(filterText.toUpperCase())
@@ -62,7 +62,8 @@ function renderCountries(countries, filterText) {
       }
     } else {
       countryList.innerHTML = '';
-      countryInfo.innerHTML = '<p> Za duzo wynikow</p>';
+      countryInfo.innerHTML =
+        '<p> Too many matches found. Please enter a more specific name. </p>';
     }
   }
 }
